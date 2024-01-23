@@ -7,7 +7,8 @@ The x11 library is really not nice :)
 None of the mlx prototypes are affected by this update.
 
 Aucun des prototypes de la mlx n'est affecté par cette mise à jour.
-Adding and Optimizations
+
+# Adding and Optimizations
 
 ## Adding:
 
