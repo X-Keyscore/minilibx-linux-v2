@@ -24,4 +24,4 @@ The behavior of the `mlx_put_image_to_window()` function has been modified, the 
 
 ### Amélioration des performances:
 
-Le comportement de la `fonction mlx_put_image_to_window()` a été modifier, la vitesse de rendu est maintenant largement augmentée. Malheureusement la fonction `mlx_xpm_file_to_image()` est plus lente car elle effectue plus de calcul pour décharger la fonction de rendu.
+Le comportement de la fonction `mlx_put_image_to_window()` a été modifier, la vitesse de rendu est maintenant largement augmentée. Malheureusement la fonction `mlx_xpm_file_to_image()` est plus lente car elle effectue plus de calcul pour décharger la fonction de rendu.
