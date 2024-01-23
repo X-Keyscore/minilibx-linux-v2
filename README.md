@@ -22,8 +22,8 @@ La transparence sur les images `xpm` est maintenant prise en charge, c’est-à-
 
 ## Performance improvements:
 
-The behavior of the `mlx_put_image_to_window()` function has been modified, the rendering speed is now greatly increased.
+The behavior of the `mlx_put_image_to_window()` function has been modified, the rendering speed is now greatly increased. Unfortunately the `mlx_xpm_file_to_image()` function is slower because it performs more calculations to offload the rendering function.
 
 Amélioration des performances:
 
-Le comportement de la `fonction mlx_put_image_to_window()` a été modifier, la vitesse de rendu est maintenant largement augmentée. Malheureusement la fonction mlx_xpm_file_to_image() est plus lente car elle effectue plus de calcul pour décharger la fonction de rendu.
+Le comportement de la `fonction mlx_put_image_to_window()` a été modifier, la vitesse de rendu est maintenant largement augmentée. Malheureusement la fonction `mlx_xpm_file_to_image()` est plus lente car elle effectue plus de calcul pour décharger la fonction de rendu.
