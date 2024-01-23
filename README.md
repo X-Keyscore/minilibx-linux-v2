@@ -12,11 +12,11 @@ Adding and Optimizations
 
 Added features:
 
-Transparency on xpm images is now supported, no colored pixels are anymore displayed.
+Transparency on `xpm` images is now supported, no colored pixels are anymore displayed.
 
 Ajout de fonctionnalités:
 
-La transparence sur les images xpm est maintenant prise en charge, c’est-à-dire que les pixels de couleur none ne sont plus affichés.
+La transparence sur les images `xpm` est maintenant prise en charge, c’est-à-dire que les pixels de couleur none ne sont plus affichés.
 
 ## Performance improvements:
 
