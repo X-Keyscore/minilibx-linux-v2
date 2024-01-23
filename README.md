@@ -1,7 +1,8 @@
 # Unofficial minilibx-linux-v2
 
 The x11 library is really not nice :)
-Information
+
+# Information
 
 None of the mlx prototypes are affected by this update.
 
