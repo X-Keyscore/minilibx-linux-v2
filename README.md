@@ -16,7 +16,7 @@ Transparency on `xpm` images is now supported, no colored pixels are anymore dis
 
 ### Ajout de fonctionnalités:
 
-La transparence sur les images `xpm` est maintenant prise en charge, c’est-à-dire que les pixels de couleur none ne sont plus affichés.
+La transparence sur les images `xpm` est maintenant prise en charge, les pixels de couleur none ne sont plus affichés.
 
 ### Performance improvements:
 
