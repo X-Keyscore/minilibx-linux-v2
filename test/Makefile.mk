@@ -11,7 +11,7 @@ NAME= mlx-test
 SRC = main.c
 OBJ = $(SRC:%.c=%.o)
 
-LFLAGS = -L.. -lmlx -L$(INCLIB) -lXext -lX11 -lm
+LFLAGS = -L.. -lmlx -L$(INCLIB) -lXext -lX11 -lm -lXpm
 
 ifeq ($(UNAME), Darwin)
 	# mac
