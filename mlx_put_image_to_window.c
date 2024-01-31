@@ -19,6 +19,7 @@ int mlx_put_image_to_window(t_xvar *xvar, t_win_list *win, t_img *img,
 					 img->width, img->height, False);
 	else
 	{
+		// v2 update by X-Keyscore
 		if (img->shape_use)
 		{
 			XSetClipMask(xvar->display, win->gc, img->shape_pix);
