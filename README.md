@@ -7,18 +7,18 @@ The x11 library is really not nice :)
 ##### Deux nouveaux prototype :
 
 Utilser ce prototype pour editer un pixel sur une image :
-`void	mlx_pixel_put_image(void *mlx_ptr, void *img_ptr, int x, int y, int color);`
+`void mlx_pixel_put_image(void *mlx_ptr, void *img_ptr, int x, int y, int color);`
 
 Utiliser ce prototype pour charger l'image avant de l'afficher :
-`void	mlx_load_image(void *mlx_ptr, void *img_ptr);`
+`void mlx_load_image(void *mlx_ptr, void *img_ptr);`
 
 ##### Two new prototype :
 
 Use this prototype for editing a pixel on an image :
-`void	mlx_pixel_put_image(void *mlx_ptr, void *img_ptr, int x, int y, int color);`
+`void mlx_pixel_put_image(void *mlx_ptr, void *img_ptr, int x, int y, int color);`
 
 Use this prototye for loading an image before to display :
-`void	mlx_load_image(void *mlx_ptr, void *img_ptr);`
+`void mlx_load_image(void *mlx_ptr, void *img_ptr);`
 
 # Adding and Optimizations
 
