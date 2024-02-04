@@ -87,7 +87,6 @@ typedef struct	s_img
 {
 	XImage			*image;
 	Pixmap			pix;
-	GC				gc;
 	int				size_line;
 	int				bpp;
 	int				width;
@@ -113,8 +112,6 @@ typedef struct	s_xvar
 	t_win_list	*win_list;
 	int			(*loop_hook)();
 	void		*loop_param;
-	int			use_xshm;
-	int			pshm_format;
 	int			do_flush;
 	int			decrgb[6];
 	Atom		wm_delete_window;

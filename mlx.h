@@ -103,6 +103,7 @@ void	*mlx_xpm_to_image(void *mlx_ptr, char **xpm_data, int *width, int *height);
 void	mlx_pixel_put_image(void *mlx_ptr, void *img_ptr, int x, int y, int color);
 void	mlx_load_image(void *mlx_ptr, void *img_ptr);
 void	*mlx_xpm_file_to_image(void *mlx_ptr, char *filename, int *width, int *height);
+void	mlx_set_full_screen(void *mlx_ptr, void *win_ptr);
 
 int mlx_destroy_window(void *mlx_ptr, void *win_ptr);
 int mlx_destroy_image(void *mlx_ptr, void *img_ptr);

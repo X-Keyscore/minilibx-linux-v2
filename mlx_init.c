@@ -39,42 +39,12 @@ void	*mlx_init()
 	xvar->do_flush = 1;
 	xvar->wm_delete_window = XInternAtom (xvar->display, "WM_DELETE_WINDOW", False);
 	xvar->wm_protocols = XInternAtom (xvar->display, "WM_PROTOCOLS", False);
-	mlx_int_deal_shm(xvar);
 	if (xvar->private_cmap)
 		xvar->cmap = XCreateColormap(xvar->display,xvar->root,
 				 xvar->visual,AllocNone);
 	mlx_int_rgb_conversion(xvar);
 	xvar->end_loop = 0;
 	return (xvar);
-}
-
-
-/*
-** pshm_format of -1 :	Not XYBitmap|XYPixmap|ZPixmap
-** alpha libX need a check of the DISPLAY env var, or shm is allowed
-** in remote Xserver connections.
-*/
-
-int		mlx_int_deal_shm(t_xvar *xvar)
-{
-	int		use_pshm;
-	int		bidon;
-	char	*dpy;
-	char	buff[33];
-
-	xvar->use_xshm = XShmQueryVersion(xvar->display,&bidon,&bidon,&(use_pshm));
-	if (xvar->use_xshm && use_pshm)
-		xvar->pshm_format = XShmPixmapFormat(xvar->display);
-	else
-		xvar->pshm_format = -1;
-	gethostname(buff,32);
-	dpy = getenv(ENV_DISPLAY);
-	if (dpy && strlen(dpy) && *dpy!=':' && strncmp(dpy,buff,strlen(buff)) &&
-			strncmp(dpy,LOCALHOST,strlen(LOCALHOST)) )
-	{
-		xvar->pshm_format = -1;
-		xvar->use_xshm = 0;
-	}
 }
 
 /*

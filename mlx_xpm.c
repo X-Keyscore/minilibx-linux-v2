@@ -305,24 +305,24 @@ void *mlx_xpm_file_to_image(t_xvar *xvar, char *file, int *width, int *height)
 
 		XFreeGC(xvar->display, shape_gc);
 		XDestroyImage(shape);
+		shape = NULL;
 	}
 	else
 	{
 		img_return->shape_use = 0;
+		img_return->shape_pix = None;
 		XPutImage(xvar->display, img_return->pix, xvar->win_list->gc, img, 0, 0, 0, 0, img->width, img->height);
 	}
 
-	img_return->gc = 0;
 	img_return->type = MLX_TYPE_XIMAGE;
 	img_return->format = XYPixmap;
 	img_return->width = img->width;
 	img_return->height = img->height;
-	img_return->data = img->data;
+	img_return->data = NULL;
 	img_return->size_line = img->bytes_per_line;
 	img_return->bpp = img->bits_per_pixel;
 	*width = img->width;
 	*height = img->height;
-
 	return (img_return);
 }
 
@@ -330,10 +330,10 @@ void *mlx_xpm_to_image(t_xvar *xvar, char **xpm_data, int *width, int *height)
 {
 	t_img *img;
 
-	if (img = mlx_int_parse_xpm(xvar, xpm_data, 0, mlx_int_static_line))
-	{
-		*width = img->width;
-		*height = img->height;
-	}
+	img = mlx_int_parse_xpm(xvar, xpm_data, 0, mlx_int_static_line);
+	if (!img)
+		return ((void *)0);
+	*width = img->width;
+	*height = img->height;
 	return (img);
 }

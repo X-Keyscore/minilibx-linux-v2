@@ -6,7 +6,7 @@
 /*   By: anraymon <anraymon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 20:06:23 by anraymon          #+#    #+#             */
-/*   Updated: 2024/01/31 20:06:32 by anraymon         ###   ########.fr       */
+/*   Updated: 2024/02/04 20:53:57 by anraymon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void *mlx_int_new_image(t_xvar *xvar, int width, int height, int format)
 	}
 	bzero(img->data, (width + 32) * height * 4);
 	img->image = XCreateImage(xvar->display, xvar->visual, xvar->depth, format, 0,
-							  img->data, width, height, 32, 0);
+		img->data, width, height, 32, 0);
 	if (!img->image)
 	{
 		free(img->data);
@@ -33,7 +33,6 @@ void *mlx_int_new_image(t_xvar *xvar, int width, int height, int format)
 		return ((void *)0);
 	}
 	img->shape_use = 0;
-	img->gc = 0;
 	img->size_line = img->image->bytes_per_line;
 	img->bpp = img->image->bits_per_pixel;
 	img->width = width;
