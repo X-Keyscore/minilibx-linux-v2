@@ -4,7 +4,7 @@ The x11 library is really not nice :)
 
 # Information
 
-##### * Deux nouveaux prototype et un modifier :
+##### Deux nouveaux prototype et un modifier :
 
 Utilser ce prototype pour editer un pixel sur une image :
 ```
@@ -21,7 +21,7 @@ Prototype modifié pour définir la cible de FPS à atteindre :
 int mlx_loop(void *mlx_ptr, int target_FPS);
 ```
 
-##### * Two new prototype :
+##### Two new prototype :
 
 Use this prototype for editing a pixel on an image :
 ```
