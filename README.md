@@ -7,24 +7,36 @@ The x11 library is really not nice :)
 ##### Deux nouveaux prototype et un modifier :
 
 Utilser ce prototype pour editer un pixel sur une image :
-`void mlx_pixel_put_image(void *mlx_ptr, void *img_ptr, int x, int y, int color);`
+```
+void mlx_pixel_put_image(void *mlx_ptr, void *img_ptr, int x, int y, int color);
+```
 
 Utiliser ce prototype pour charger l'image avant de l'afficher :
-`void mlx_load_image(void *mlx_ptr, void *img_ptr);`
+```
+void mlx_load_image(void *mlx_ptr, void *img_ptr);
+```
 
 Prototype modifié pour définir la cible de FPS à atteindre :
-`int mlx_loop(void *mlx_ptr, int target_FPS);`
+```
+int mlx_loop(void *mlx_ptr, int target_FPS);
+```
 
 ##### Two new prototype :
 
 Use this prototype for editing a pixel on an image :
-`void mlx_pixel_put_image(void *mlx_ptr, void *img_ptr, int x, int y, int color);`
+```
+void mlx_pixel_put_image(void *mlx_ptr, void *img_ptr, int x, int y, int color);
+```
 
 Use this prototye for loading an image before to display :
-`void mlx_load_image(void *mlx_ptr, void *img_ptr);`
+```
+void mlx_load_image(void *mlx_ptr, void *img_ptr);
+```
 
 Prototype modified to define the FPS target to be achieved :
-`int mlx_loop(void *mlx_ptr, int target_FPS);`
+```
+int mlx_loop(void *mlx_ptr, int target_FPS);
+```
 
 # Adding and Optimizations
 
