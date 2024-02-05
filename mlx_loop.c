@@ -34,15 +34,29 @@ int			mlx_loop_end(t_xvar *xvar)
 	return (1);
 }
 
-int			mlx_loop(t_xvar *xvar)
+long long get_nanoseconds() {
+    struct timespec current_time;
+    clock_gettime(CLOCK_MONOTONIC, &current_time);
+    return current_time.tv_sec * 1000000000LL + current_time.tv_nsec;
+}
+
+int			mlx_loop(t_xvar *xvar, int target_FPS)
 {
-	XEvent		ev;
+    const long long frame_time = 100000000LL / target_FPS;
+	struct timespec sleep_interval;
+	long long elapsed_time;
+	long long sleep_time;
+	long long start_time;
+	long long end_time;
 	t_win_list	*win;
+	XEvent		ev;
 
 	mlx_int_set_win_event_mask(xvar);
 	xvar->do_flush = 0;
 	while (win_count(xvar) && !xvar->end_loop)
 	{
+		start_time = get_nanoseconds();
+
 		while (!xvar->end_loop && (!xvar->loop_hook || XPending(xvar->display)))
 		{
 			XNextEvent(xvar->display,&ev);
@@ -58,6 +72,15 @@ int			mlx_loop(t_xvar *xvar)
 		XSync(xvar->display, False);
 		if (xvar->loop_hook)
 			xvar->loop_hook(xvar->loop_param);
+
+		end_time = get_nanoseconds();
+        elapsed_time = end_time - start_time;
+        sleep_time = frame_time - elapsed_time;
+        if (sleep_time > 0) {
+            sleep_interval.tv_sec = sleep_time / 1000000000LL;
+            sleep_interval.tv_nsec = sleep_time % 1000000000LL;
+            nanosleep(&sleep_interval, NULL);
+        }
 	}
 	return (0);
 }

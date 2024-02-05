@@ -27,15 +27,11 @@
 # include <X11/Xlib.h>
 # include <X11/Xutil.h>
 # include <sys/ipc.h>
-# include <sys/shm.h>
-# include <X11/extensions/XShm.h>
 # include <X11/XKBlib.h>
 // v2 update by X-Keyscore
-#include <X11/xpm.h>
+# include <time.h>
+# include <X11/xpm.h>
 
-
-# define MLX_TYPE_SHM_PIXMAP 3
-# define MLX_TYPE_SHM 2
 # define MLX_TYPE_XIMAGE 1
 
 # define MLX_MAX_EVENT LASTEvent
@@ -44,7 +40,6 @@
 # define ENV_DISPLAY "DISPLAY"
 # define LOCALHOST "localhost"
 # define ERR_NO_TRUECOLOR "MinilibX Error : No TrueColor Visual available.\n"
-# define WARN_SHM_ATTACH "MinilibX Warning : X server can't attach shared memory.\n"
 
 
 typedef	struct	s_xpm_col
@@ -94,7 +89,6 @@ typedef struct	s_img
 	int				type;
 	int				format;
 	char			*data;
-	XShmSegmentInfo	shm;
 	// v2 update by X-Keyscore
 	int 			shape_use;
 	Pixmap			shape_pix;
@@ -127,7 +121,6 @@ int				mlx_int_find_in_pcm();
 int				mlx_int_anti_resize_win();
 int				mlx_int_wait_first_expose();
 int				mlx_int_rgb_conversion();
-int				mlx_int_deal_shm();
 char			**mlx_int_str_to_wordtab();
 void			*mlx_new_image();
 int				mlx_int_get_visual(t_xvar *xvar);
