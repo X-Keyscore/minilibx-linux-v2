@@ -6,7 +6,7 @@
 /*   By: anraymon <anraymon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 10:50:55 by anraymon          #+#    #+#             */
-/*   Updated: 2024/02/04 20:55:36 by anraymon         ###   ########.fr       */
+/*   Updated: 2024/02/06 02:35:23 by anraymon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,12 @@ void	mlx_pixel_put_image(t_xvar *xvar, t_img *img, int x, int y, int color)
 
 void	mlx_set_full_screen(t_xvar *xvar, t_win_list *win)
 {
+	int screen_width;
+	int screen_height;
+
     XWindowAttributes windowAttributes;
     XGetWindowAttributes(xvar->display, win->window, &windowAttributes);
-    int screen_width = DisplayWidth(xvar->display, DefaultScreen(xvar->display));
-    int screen_height = DisplayHeight(xvar->display, DefaultScreen(xvar->display));
+    screen_width = DisplayWidth(xvar->display, DefaultScreen(xvar->display));
+    screen_height = DisplayHeight(xvar->display, DefaultScreen(xvar->display));
     XMoveResizeWindow(xvar->display, win->window, 0, 0, screen_width, screen_height);
-
 }
