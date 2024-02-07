@@ -2,6 +2,8 @@
 
 The x11 library is really not nice :)
 
+# FR
+
 # Information
 
 ##### Nouveaux prototype
@@ -33,6 +35,20 @@ Modifier ->
 ```
 int mlx_loop(void *mlx_ptr, int target_FPS);
 ```
+
+# Ajout et optimisations
+
+### Ajout de fonctionnalités
+
+La transparence sur les images `xpm` est maintenant prise en charge, les pixels de couleur none ne sont plus affichés.
+
+### Amélioration des performances
+
+Le comportement de la fonction `mlx_put_image_to_window()` a été modifier, la vitesse de rendu est maintenant largement augmentée. Malheureusement la fonction `mlx_xpm_file_to_image()` est plus lente car elle effectue plus de calcul pour décharger la fonction de rendu.
+
+# EN
+
+# Information
 
 ##### New prototype
 
@@ -66,17 +82,9 @@ int mlx_loop(void *mlx_ptr, int target_FPS);
 
 # Adding and Optimizations
 
-### Ajout de fonctionnalités
-
-La transparence sur les images `xpm` est maintenant prise en charge, les pixels de couleur none ne sont plus affichés.
-
 ### Added features
 
 Transparency on `xpm` images is now supported, no colored pixels are anymore displayed.
-
-### Amélioration des performances
-
-Le comportement de la fonction `mlx_put_image_to_window()` a été modifier, la vitesse de rendu est maintenant largement augmentée. Malheureusement la fonction `mlx_xpm_file_to_image()` est plus lente car elle effectue plus de calcul pour décharger la fonction de rendu.
 
 ### Performance improvements
 
