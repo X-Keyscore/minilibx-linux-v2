@@ -24,6 +24,7 @@ void mlx_loop_restart(void *mlx_ptr);
 ##### Prototype modifier :
 
 Prototype modifié pour définir la cible de FPS à atteindre :
+
 Ancien
 ```
 int mlx_loop(void *mlx_ptr);
@@ -53,6 +54,7 @@ void mlx_loop_restart(void *mlx_ptr);
 ##### Prototype edit :
 
 Prototype modified to define the FPS target to be achieved :
+
 Old
 ```
 int mlx_loop(void *mlx_ptr);
