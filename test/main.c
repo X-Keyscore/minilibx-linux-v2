@@ -127,7 +127,7 @@ int	main()
   sleep(2);
 
   printf(" => Image1 ZPixmap %dx%d ...",IM1_SX,IM1_SY);
-  if (!(im1 = mlx_new_image(mlx,IM1_SX,IM1_SY)))
+  if (!(im1 = mlx_new_image(mlx,win1,IM1_SX,IM1_SY)))
     {
       printf(" !! KO !!\n");
       exit(1);
@@ -151,7 +151,7 @@ int	main()
   sleep(2);
 
   printf(" => Image3 ZPixmap %dx%d ...",IM3_SX,IM3_SY);
-  if (!(im3 = mlx_new_image(mlx,IM3_SX,IM3_SY)))
+  if (!(im3 = mlx_new_image(mlx,win1,IM3_SX,IM3_SY)))
     {
       printf(" !! KO !!\n");
       exit(1);
@@ -194,7 +194,7 @@ int	main()
 
   printf(" => 2nd window,");
   win2 = mlx_new_window(mlx,WIN1_SX,WIN1_SY,"Title2");
-  if (!(im4 = mlx_new_image(mlx,IM3_SX, IM3_SY)))
+  if (!(im4 = mlx_new_image(mlx,win2,IM3_SX, IM3_SY)))
     {
       printf(" !! KO !!\n");
       exit(1);

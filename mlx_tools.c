@@ -6,18 +6,18 @@
 /*   By: anraymon <anraymon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 10:50:55 by anraymon          #+#    #+#             */
-/*   Updated: 2024/02/06 17:47:46 by anraymon         ###   ########.fr       */
+/*   Updated: 2024/02/07 15:43:39 by anraymon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mlx_int.h"
 
-void	mlx_load_image(t_xvar *xvar, t_img *img)
+void	mlx_load_image(t_xvar *xvar, t_win_list *win, t_img *img)
 {
 	GC shape_gc;
 
 	img->shape_use = 1;
-	img->shape_pix = XCreatePixmap(xvar->display, xvar->win_list->window, img->image->width, img->image->height, 1);
+	img->shape_pix = XCreatePixmap(xvar->display, win->window, img->image->width, img->image->height, 1);
 	shape_gc = XCreateGC(xvar->display, img->shape_pix, 0, NULL);
 	XSetForeground(xvar->display, shape_gc, 1);
 	for (int y = 0; y < img->image->height; y++) {
@@ -27,7 +27,7 @@ void	mlx_load_image(t_xvar *xvar, t_img *img)
 				XDrawPoint(xvar->display, img->shape_pix, shape_gc, x, y);
 		}
 	}
-	XPutImage(xvar->display, img->pix, xvar->win_list->gc, img->image, 0, 0, 0, 0, img->image->width, img->image->height);
+	XPutImage(xvar->display, img->pix, win->gc, img->image, 0, 0, 0, 0, img->image->width, img->image->height);
 	XFreeGC(xvar->display, shape_gc);
 }
 
