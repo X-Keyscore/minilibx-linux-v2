@@ -8,17 +8,17 @@ The x11 library is really not nice :)
 
 ##### Nouveaux prototype
 
-Utilser ce prototype pour editer un pixel sur une image :
+Prototype pour editer un pixel sur une image :
 ```
 void mlx_pixel_put_image(void *mlx_ptr, void *img_ptr, int x, int y, int color);
 ```
 
-Utiliser ce prototype pour charger l'image avant de l'afficher :
+Prototype pour charger l'image avant de l'afficher :
 ```
 void mlx_load_image(void *mlx_ptr, void *img_ptr);
 ```
 
-Utiliser ce prototype pour relancer mlx_loop (n'oublier pas de rappeler mlx_loop) :
+Prototype pour relancer mlx_loop (n'oublier pas de rappeler mlx_loop) :
 ```
 void mlx_loop_restart(void *mlx_ptr);
 ```
@@ -52,17 +52,17 @@ Le comportement de la fonction `mlx_put_image_to_window()` a été modifier, la 
 
 ##### New prototype
 
-Use this prototype for editing a pixel on an image :
+Prototype for editing a pixel on an image :
 ```
 void mlx_pixel_put_image(void *mlx_ptr, void *img_ptr, int x, int y, int color);
 ```
 
-Use this prototye for loading an image before to display :
+Prototype for loading an image before to display :
 ```
 void mlx_load_image(void *mlx_ptr, void *img_ptr);
 ```
 
-Use this prototype to restart mlx_loop (don't forget to recall mlx_loop) :
+Prototype to restart mlx_loop (don't forget to recall mlx_loop) :
 ```
 void mlx_loop_restart(void *mlx_ptr);
 ```
