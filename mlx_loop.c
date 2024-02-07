@@ -34,6 +34,13 @@ int			mlx_loop_end(t_xvar *xvar)
 	return (1);
 }
 
+int			mlx_loop_restart(t_xvar *xvar)
+{
+	if (xvar->end_loop == 1)
+		xvar->end_loop = 0;
+	return (1);
+}
+
 long long get_nanoseconds() {
     struct timespec current_time;
     clock_gettime(CLOCK_MONOTONIC, &current_time);
@@ -42,7 +49,7 @@ long long get_nanoseconds() {
 
 int			mlx_loop(t_xvar *xvar, int target_FPS)
 {
-    const long long frame_time = 100000000LL / target_FPS;
+    const long long frame_time = 1000000000LL / target_FPS;
 	struct timespec sleep_interval;
 	long long elapsed_time;
 	long long sleep_time;

@@ -6,13 +6,13 @@
 /*   By: anraymon <anraymon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 22:36:48 by anraymon          #+#    #+#             */
-/*   Updated: 2024/02/04 22:44:21 by anraymon         ###   ########.fr       */
+/*   Updated: 2024/02/06 18:18:21 by anraymon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mlx_int.h"
 
-void *mlx_xpm_file_to_image(t_xvar *xvar, char *file, int *width, int *height)
+void *mlx_xpm_file_to_image(t_xvar *xvar, t_win_list *win, char *file, int *width, int *height)
 {
 	XImage *img;
 	XImage *shape;
@@ -28,7 +28,7 @@ void *mlx_xpm_file_to_image(t_xvar *xvar, char *file, int *width, int *height)
 	if (img)
 	{
 		img_return->image = img;
-		img_return->pix = XCreatePixmap(xvar->display, xvar->win_list->window, img->width, img->height, img->depth);
+		img_return->pix = XCreatePixmap(xvar->display, win->window, img->width, img->height, img->depth);
 	}
 	else
 	{
@@ -40,12 +40,12 @@ void *mlx_xpm_file_to_image(t_xvar *xvar, char *file, int *width, int *height)
 	if (shape)
 	{
 		img_return->shape_use = 1;
-		img_return->shape_pix = XCreatePixmap(xvar->display, xvar->win_list->window, img->width, img->height, 1);
+		img_return->shape_pix = XCreatePixmap(xvar->display, win->window, img->width, img->height, 1);
 		shape_gc = XCreateGC(xvar->display, img_return->shape_pix, 0, NULL);
 
 		XPutImage(xvar->display, img_return->shape_pix, shape_gc, shape, 0, 0, 0, 0, shape->width, shape->height);
 
-		XPutImage(xvar->display, img_return->pix, xvar->win_list->gc, img, 0, 0, 0, 0, img->width, img->height);
+		XPutImage(xvar->display, img_return->pix, win->gc, img, 0, 0, 0, 0, img->width, img->height);
 
 		XFreeGC(xvar->display, shape_gc);
 		XDestroyImage(shape);
@@ -55,7 +55,7 @@ void *mlx_xpm_file_to_image(t_xvar *xvar, char *file, int *width, int *height)
 	{
 		img_return->shape_use = 0;
 		img_return->shape_pix = None;
-		XPutImage(xvar->display, img_return->pix, xvar->win_list->gc, img, 0, 0, 0, 0, img->width, img->height);
+		XPutImage(xvar->display, img_return->pix, win->gc, img, 0, 0, 0, 0, img->width, img->height);
 	}
 
 	img_return->type = MLX_TYPE_XIMAGE;

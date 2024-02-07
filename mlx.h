@@ -81,6 +81,7 @@ int mlx_expose_hook(void *win_ptr, int (*funct_ptr)(), void *param);
 int mlx_loop_hook(void *mlx_ptr, int (*funct_ptr)(), void *param);
 int	mlx_loop(void *mlx_ptr, int target_FPS);
 int mlx_loop_end(void *mlx_ptr);
+int	mlx_loop_restart(void *mlx_ptr);
 
 /*
 **  hook funct are called as follow :
@@ -102,7 +103,7 @@ void mlx_set_font(void *mlx_ptr, void *win_ptr, char *name);
 void	*mlx_xpm_to_image(void *mlx_ptr, char **xpm_data, int *width, int *height);
 void	mlx_pixel_put_image(void *mlx_ptr, void *img_ptr, int x, int y, int color);
 void	mlx_load_image(void *mlx_ptr, void *img_ptr);
-void	*mlx_xpm_file_to_image(void *mlx_ptr, char *filename, int *width, int *height);
+void	*mlx_xpm_file_to_image(void *mlx_ptr, void *win_ptr, char *filename, int *width, int *height);
 void	mlx_set_full_screen(void *mlx_ptr, void *win_ptr);
 
 int mlx_destroy_window(void *mlx_ptr, void *win_ptr);
