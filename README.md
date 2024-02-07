@@ -15,7 +15,7 @@ void mlx_pixel_put_image(void *mlx_ptr, void *img_ptr, int x, int y, int color);
 
 Prototype pour charger l'image avant de l'afficher :
 ```
-void mlx_load_image(void *mlx_ptr, void *img_ptr);
+void mlx_load_image(void *mlx_ptr, void *win_ptr, void *img_ptr);
 ```
 
 Prototype pour relancer mlx_loop (n'oublier pas de rappeler mlx_loop) :
@@ -59,7 +59,7 @@ void mlx_pixel_put_image(void *mlx_ptr, void *img_ptr, int x, int y, int color);
 
 Prototype for loading an image before to display :
 ```
-void mlx_load_image(void *mlx_ptr, void *img_ptr);
+void mlx_load_image(void *mlx_ptr, void *win_ptr, void *img_ptr);
 ```
 
 Prototype to restart mlx_loop (don't forget to recall mlx_loop) :
