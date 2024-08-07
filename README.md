@@ -1,7 +1,5 @@
 # Unofficial minilibx-linux-v2
 
-The x11 library is really not nice :)
-
 # FR
 
 # Information
